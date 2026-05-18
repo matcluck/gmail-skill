@@ -1,0 +1,33 @@
+{
+  "name": "gmail-workflows",
+  "version": "0.1.0",
+  "description": "Gmail workflow skills for labels, filters, inbox audits, rule audits, and label colours.",
+  "author": {
+    "name": "Matcluck"
+  },
+  "keywords": [
+    "gmail",
+    "email",
+    "filters",
+    "labels",
+    "inbox"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Gmail Workflows",
+    "shortDescription": "Gmail labels, filters, audits, and cleanup",
+    "longDescription": "Reusable Gmail workflow skills for creating labels, adding inbox-first filter rules, auditing inbox messages, auditing persistent rules, and managing label colours.",
+    "developerName": "Matcluck",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Audit my Gmail inbox for new filter candidates.",
+      "Add Gmail rules for this sender.",
+      "Create a nested Gmail label."
+    ],
+    "brandColor": "#1A73E8"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gmail Add Label"
+  short_description: "Create and verify Gmail labels"
+  default_prompt: "Use $gmail-add-label to create a Gmail label and apply it where needed."

@@ -1,0 +1,17 @@
+{
+  "name": "gmail-workflows",
+  "description": "Gmail workflow skills for labels, filters, inbox audits, rule audits, and label colours.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Matcluck"
+  },
+  "keywords": [
+    "gmail",
+    "email",
+    "filters",
+    "labels",
+    "inbox"
+  ],
+  "skills": "./skills/",
+  "category": "Productivity"
+}

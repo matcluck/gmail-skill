@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gmail Audit Inbox"
+  short_description: "Audit inbox senders and interview for filter changes."
+  default_prompt: "Audit my inbox for recurring senders that need Gmail filters, then interview me in batches."

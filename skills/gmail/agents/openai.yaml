@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gmail"
+  short_description: "Shared Gmail browser automation and filter mechanics."
+  default_prompt: "Use Gmail automation patterns to manage labels, filters, and inbox cleanup safely."

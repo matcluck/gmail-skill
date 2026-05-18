@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gmail Audit Rules"
+  short_description: "Audit existing Gmail filters against the two-rule contract."
+  default_prompt: "Audit my existing Gmail filters and propose safe corrections."

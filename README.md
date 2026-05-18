@@ -1,59 +1,55 @@
-# Gmail Inbox Management Skill
+# Gmail Workflows
 
-A Claude Code skill for automating Gmail label, filter, and color management using the Playwright MCP plugin.
+Gmail workflow skills for Codex and Claude Code: labels, filters, inbox audits, rule audits, label colours, and safe cleanup.
 
-## What it does
+## Install Shapes
 
-- Audits and organizes Gmail labels into a clean hierarchy
-- Creates, renames, moves, and colors labels
-- Creates and edits email filters with best-practice settings
-- Bulk archives/deletes emails by sender
-- Helps triage spam and unwanted subscriptions
+This repo now supports two layouts:
 
-## Setup
+- Plugin layout: `.codex-plugin/`, `.claude-plugin/`, and `skills/`
+- Legacy single-skill layout: root `SKILL.md` plus `references/`
 
-1. Install [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
-2. Install the Playwright MCP plugin: `/install-plugin playwright`
-3. Clone this repo into your skills directory:
-   ```bash
-   git clone https://github.com/matcluck/gmail-skill.git ~/.claude/skills/gmail-skill
-   ```
-4. Start a conversation and ask Claude to help organize your Gmail
+The plugin layout is the complete source for companion workflows:
 
-Claude will launch a browser, ask you to log in, and walk you through the cleanup workflow.
+- `gmail`
+- `gmail-add-label`
+- `gmail-add-rules`
+- `gmail-audit-inbox`
+- `gmail-audit-rules`
+- `gmail-colour-labels`
+
+The root `SKILL.md` mirrors the core `gmail` skill so older single-skill installs still get the current core Gmail rules and references.
+
+## Safety Defaults
+
+- Never automate Gmail login.
+- Do not delete, mark read, unsubscribe, forward, or star unless explicitly asked.
+- Use inbox-first rules by default: base/tag filters keep Inbox; skip filters are separate and never apply labels.
+- Security, login, MFA, verification, account-protection, finance, health, bills, government, and human mail stay visible unless explicitly approved otherwise.
+- Broad no-subject skip rules are only for dedicated mailing-list/newsletter senders or stable list IDs.
 
 ## Structure
 
-```
+```text
 gmail-skill/
-├── README.md
-├── SKILL.md              # Main skill — workflow, best practices, organization guide
-└── references/           # Playwright automation patterns (read on-demand)
-    ├── archive-from-inbox.js
-    ├── create-filter.js
-    ├── create-label.js
-    ├── delete-from-sender.js
-    ├── edit-filter.js
-    ├── hide-category-labels.js
-    ├── list-labels.js
-    ├── move-label.js
-    ├── remove-label-from-emails.js
-    ├── rename-label.js
-    └── set-label-color.js
+├── .codex-plugin/plugin.json
+├── .claude-plugin/plugin.json
+├── SKILL.md
+├── references/
+└── skills/
+    ├── gmail/
+    ├── gmail-add-label/
+    ├── gmail-add-rules/
+    ├── gmail-audit-inbox/
+    ├── gmail-audit-rules/
+    └── gmail-colour-labels/
 ```
 
-## Usage
+## Review
 
-Just ask Claude naturally:
+After syncing local changes, review with:
 
-- "Help me clean up my Gmail"
-- "Audit my labels and filters"
-- "Color all my labels with a nice palette"
-- "Create a filter for newsletters"
-- "Archive old emails from this sender"
-
-## Notes
-
-- Login is always manual — Claude will never handle your credentials
-- Gmail's DOM uses non-standard elements (custom dropdowns, span-based links, hidden menus) — the reference files handle all of these quirks
-- The skill recommends a label hierarchy and color scheme but adapts to your preferences
+```bash
+git status --short
+git diff
+```

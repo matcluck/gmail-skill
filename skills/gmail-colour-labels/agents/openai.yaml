@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gmail Colour Labels"
+  short_description: "Apply and standardize Gmail label colours safely."
+  default_prompt: "Use $gmail-colour-labels to colour my Gmail labels using the existing Gmail automation helpers."

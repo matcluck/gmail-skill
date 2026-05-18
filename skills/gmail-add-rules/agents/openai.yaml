@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gmail Add Rules"
+  short_description: "Create Gmail two-rule filters safely"
+  default_prompt: "Use $gmail-add-rules to add Gmail base and skip rules for a recurring sender."
