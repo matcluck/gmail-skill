@@ -2,14 +2,46 @@
 
 Gmail workflow skills for Codex and Claude Code: labels, filters, inbox audits, rule audits, label colours, and safe cleanup.
 
+## Install
+
+Add the marketplace, then install the `gmail-workflows` plugin from that marketplace.
+
+Codex:
+
+```bash
+codex plugin marketplace add matcluck/gmail-skill
+```
+
+For a local checkout:
+
+```bash
+codex plugin marketplace add /path/to/gmail-skill
+```
+
+Then open `/plugins`, select **Gmail Workflows**, and install `gmail-workflows`.
+
+Claude Code:
+
+```bash
+claude plugin marketplace add matcluck/gmail-skill
+claude plugin install gmail-workflows@gmail-workflows-marketplace
+```
+
+For a local checkout:
+
+```bash
+claude plugin marketplace add /path/to/gmail-skill
+claude plugin install gmail-workflows@gmail-workflows-marketplace
+```
+
 ## Install Shapes
 
-This repo now supports two layouts:
+The plugin layout is the source of truth:
 
-- Plugin layout: `.codex-plugin/`, `.claude-plugin/`, and `skills/`
-- Legacy single-skill layout: root `SKILL.md` plus `references/`
-
-The plugin layout is the complete source for companion workflows:
+- `.agents/plugins/marketplace.json` for Codex marketplace installation
+- `.claude-plugin/marketplace.json` for Claude Code marketplace installation
+- `.codex-plugin/plugin.json` and `.claude-plugin/plugin.json` for plugin metadata
+- `skills/` for the reusable workflow skills
 
 - `gmail`
 - `gmail-add-label`
@@ -18,7 +50,7 @@ The plugin layout is the complete source for companion workflows:
 - `gmail-audit-rules`
 - `gmail-colour-labels`
 
-The root `SKILL.md` mirrors the core `gmail` skill so older single-skill installs still get the current core Gmail rules and references.
+The core `gmail` skill owns the shared references under `skills/gmail/references/`. Companion skills reference that path directly so Gmail rules, browser helpers, and cleanup behavior are maintained in one place.
 
 ## Safety Defaults
 
@@ -32,12 +64,14 @@ The root `SKILL.md` mirrors the core `gmail` skill so older single-skill install
 
 ```text
 gmail-skill/
+├── .agents/plugins/marketplace.json
 ├── .codex-plugin/plugin.json
-├── .claude-plugin/plugin.json
-├── SKILL.md
-├── references/
+├── .claude-plugin/
+│   ├── marketplace.json
+│   └── plugin.json
 └── skills/
     ├── gmail/
+    │   └── references/
     ├── gmail-add-label/
     ├── gmail-add-rules/
     ├── gmail-audit-inbox/

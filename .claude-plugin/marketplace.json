@@ -1,0 +1,38 @@
+{
+  "name": "gmail-workflows-marketplace",
+  "owner": {
+    "name": "Matcluck"
+  },
+  "metadata": {
+    "description": "Marketplace for reusable Gmail workflow skills.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "gmail-workflows",
+      "source": "./",
+      "description": "Gmail workflow skills for labels, filters, inbox audits, rule audits, label colours, and safe cleanup.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Matcluck"
+      },
+      "repository": "https://github.com/matcluck/gmail-skill",
+      "keywords": [
+        "gmail",
+        "email",
+        "filters",
+        "labels",
+        "inbox"
+      ],
+      "category": "productivity",
+      "tags": [
+        "gmail",
+        "email",
+        "filters",
+        "labels",
+        "inbox"
+      ],
+      "strict": false
+    }
+  ]
+}
